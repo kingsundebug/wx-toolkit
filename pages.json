@@ -1,0 +1,80 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "哆啦口袋"
+      }
+    },
+    {
+      "path": "pages/remove-wm/remove-wm",
+      "style": {
+        "navigationBarTitleText": "去水印"
+      }
+    },
+    {
+      "path": "pages/qrcode/qrcode",
+      "style": {
+        "navigationBarTitleText": "二维码"
+      }
+    },
+    {
+      "path": "pages/mine/mine",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/tool-detail/tool-detail",
+      "style": {
+        "navigationBarTitleText": "工具详情"
+      }
+    },
+    {
+      "path": "pages/danmaku/danmaku",
+      "style": {
+        "navigationBarTitleText": "手持弹幕",
+        "navigationStyle": "custom",
+        "disableScroll": true
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "哆啦口袋",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F7F8FA"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1677FF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "工具箱",
+        "iconPath": "static/tab/home.png",
+        "selectedIconPath": "static/tab/home-on.png"
+      },
+      {
+        "pagePath": "pages/remove-wm/remove-wm",
+        "text": "去水印",
+        "iconPath": "static/tab/wm.png",
+        "selectedIconPath": "static/tab/wm-on.png"
+      },
+      {
+        "pagePath": "pages/qrcode/qrcode",
+        "text": "二维码",
+        "iconPath": "static/tab/qr.png",
+        "selectedIconPath": "static/tab/qr-on.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/tab/me.png",
+        "selectedIconPath": "static/tab/me-on.png"
+      }
+    ]
+  }
+}

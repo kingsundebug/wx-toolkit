@@ -1,0 +1,9 @@
+{
+  "name": "wx-toolkit",
+  "version": "1.0.0",
+  "description": "微信小程序工具集（uni-app Vue3）",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
