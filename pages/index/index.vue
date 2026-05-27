@@ -6,14 +6,13 @@
         <text class="section-title">推荐</text>
       </view>
       <view class="section-card featured-card">
-        <view
-          v-for="item in featuredList"
-          :key="item.id"
-          class="featured-item"
-          @click="onOpenTool(item)"
-        >
-          <text v-if="item.id === 'remove-wm'" class="badge-soon">即将上线</text>
-          <view class="icon-lg" :class="item.gradient">
+          <view
+            v-for="item in featuredList"
+            :key="item.id"
+            class="featured-item"
+            @click="onOpenTool(item)"
+          >
+            <view class="icon-lg" :class="item.gradient">
             <text class="icon-text">{{ item.glyph }}</text>
           </view>
           <text class="item-name">{{ item.name }}</text>
@@ -117,17 +116,6 @@ export default {
   flex-direction: column;
   align-items: center;
   position: relative;
-}
-
-.badge-soon {
-  position: absolute;
-  top: -8rpx;
-  right: 16rpx;
-  padding: 4rpx 12rpx;
-  font-size: 20rpx;
-  color: #999999;
-  background-color: #f5f5f5;
-  border-radius: 8rpx;
 }
 
 .icon-lg {

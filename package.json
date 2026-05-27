@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "微信小程序工具集（uni-app Vue3）",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "sync:cloud": "node scripts/sync-cloudfunctions.js",
+    "zip:parseDouyin": "node scripts/zip-parseDouyin.js"
+  },
   "dependencies": {},
   "devDependencies": {}
 }
