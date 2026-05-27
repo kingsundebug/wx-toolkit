@@ -44,6 +44,12 @@
         "navigationStyle": "custom",
         "disableScroll": true
       }
+    },
+    {
+      "path": "pages/moments-copy/moments-copy",
+      "style": {
+        "navigationBarTitleText": "朋友圈文案"
+      }
     }
   ],
   "globalStyle": {

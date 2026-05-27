@@ -31,7 +31,7 @@ export const tools = [
     categoryId: 'media',
     glyph: '码',
     gradient: 'grad-pink-red',
-    status: 'soon',
+    status: 'ready',
     path: '/pages/qrcode/qrcode',
     tabPath: '/pages/qrcode/qrcode',
     featured: true
@@ -58,16 +58,6 @@ export const tools = [
     path: '/pages/tool-detail/tool-detail?id=qr-parse'
   },
   {
-    id: 'memo',
-    name: '备忘录',
-    desc: '轻量记事，支持置顶',
-    categoryId: 'life',
-    glyph: '备',
-    gradient: 'grad-orange-yellow',
-    status: 'soon',
-    path: '/pages/tool-detail/tool-detail?id=memo'
-  },
-  {
     id: 'calendar',
     name: '查日历',
     desc: '农历、节气与节假日',
@@ -86,6 +76,16 @@ export const tools = [
     gradient: 'grad-pink-light',
     status: 'ready',
     path: '/pages/danmaku/danmaku'
+  },
+  {
+    id: 'moments-copy',
+    name: '朋友圈文案',
+    desc: '一键生成朋友圈配文',
+    categoryId: 'fun',
+    glyph: '圈',
+    gradient: 'grad-green-teal',
+    status: 'ready',
+    path: '/pages/moments-copy/moments-copy'
   }
 ]
 

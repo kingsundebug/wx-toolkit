@@ -32,6 +32,13 @@
 3. 在 `pages.json` 中注册新页面路径。
 4. 将 `path` 指向新页面，例如：`/pages/my-tool/my-tool?id=xxx`。
 
+## 朋友圈文案（大模型）
+
+1. 复制 `cloudfunctions/generateMomentsCopy/config.example.json` 为同目录下的 `config.json`，填入 `LLM_API_KEY`（该文件已加入 `.gitignore`，不会提交）。
+2. 在微信开发者工具中，右键 `cloudfunctions/generateMomentsCopy` → **上传并部署：云端安装依赖**（部署时会同步 `config.json` 中的环境变量）。
+3. 若未使用 `config.json`，也可在云函数 **配置 → 环境变量** 中手动设置 `LLM_API_KEY`；默认使用 DeepSeek Anthropic 兼容地址 `https://api.deepseek.com/anthropic`，模型 `deepseek-v4-flash`（OpenAI 格式可用 `https://api.deepseek.com`）。
+3. 重新编译小程序后，在首页「趣味创意 → 朋友圈文案」中填写主题并生成。
+
 ## 后续你可提供
 
 - 页面原型 / 交互稿 → 对齐 UI 与路由

@@ -5,7 +5,14 @@ const ERROR_MSG = {
   PARSE_FAILED: '解析失败，请稍后重试或更换链接',
   UNSUPPORTED: '暂仅支持抖音链接',
   CLOUD_NOT_READY: '云开发未就绪，请确认已开通并填写环境 ID',
-  CLOUD_CALL_FAIL: '云函数调用失败，请确认 parseDouyin 已上传部署到云端（非仅本地调试）'
+  CLOUD_CALL_FAIL: '云函数调用失败，请确认 parseDouyin 已上传部署到云端（非仅本地调试）',
+  INVALID_INPUT: '请至少填写朋友圈主题',
+  LLM_NOT_CONFIGURED:
+    '大模型未配置，请在云函数 generateMomentsCopy 的环境变量中设置 LLM_API_KEY',
+  GENERATE_FAILED: '文案生成失败，请稍后重试',
+  RATE_LIMIT: '请求过于频繁，请稍后再试',
+  MOMENTS_CLOUD_FAIL:
+    '云函数调用失败，请确认 generateMomentsCopy 已上传部署到云端'
 }
 
 /**
@@ -83,6 +90,48 @@ export function callParseDouyin(text) {
           },
           fail(err) {
             reject(err || { errMsg: ERROR_MSG.CLOUD_CALL_FAIL })
+          }
+        })
+        // #endif
+      })
+  )
+}
+
+/**
+ * @param {{
+ *   theme: string,
+ *   content?: string,
+ *   mood?: string,
+ *   style?: string,
+ *   extra?: string,
+ *   regenerate?: boolean,
+ *   previousCopy?: string
+ * }} payload
+ * @returns {Promise<{ ok: true, copy: string }>}
+ */
+export function callGenerateMomentsCopy(payload) {
+  return ensureCloudReady().then(
+    () =>
+      new Promise((resolve, reject) => {
+        // #ifdef MP-WEIXIN
+        wx.cloud.callFunction({
+          name: 'generateMomentsCopy',
+          data: payload,
+          success(res) {
+            const data = res.result
+            if (data && data.ok && data.copy) {
+              resolve(data)
+              return
+            }
+            reject(
+              data || {
+                code: 'GENERATE_FAILED',
+                message: ERROR_MSG.GENERATE_FAILED
+              }
+            )
+          },
+          fail(err) {
+            reject(err || { errMsg: ERROR_MSG.MOMENTS_CLOUD_FAIL })
           }
         })
         // #endif
