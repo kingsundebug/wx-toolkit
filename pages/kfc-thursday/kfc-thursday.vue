@@ -6,7 +6,7 @@
       </view>
       <view class="head-body">
         <text class="head-title">疯狂星期四</text>
-        <text class="head-desc">内置 {{ copyCount }} 条疯四梗文案，随机抽取，一键复制</text>
+        <text class="head-desc">内置疯四梗文案，随机抽取，一键复制</text>
       </view>
     </view>
 
@@ -32,12 +32,11 @@
 </template>
 
 <script>
-import { getCopyCount, isThursdayToday, pickRandomCopy } from '../../common/kfc-thursday/index.js'
+import { isThursdayToday, pickRandomCopy } from '../../common/kfc-thursday/index.js'
 
 export default {
   data() {
     return {
-      copyCount: getCopyCount(),
       isThursday: isThursdayToday(),
       resultCopy: '',
       currentIndex: -1
