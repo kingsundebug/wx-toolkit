@@ -20,6 +20,12 @@
       }
     },
     {
+      "path": "pages/add-wm/add-wm",
+      "style": {
+        "navigationBarTitleText": "加水印"
+      }
+    },
+    {
       "path": "pages/mine/mine",
       "style": {
         "navigationBarTitleText": "我的"

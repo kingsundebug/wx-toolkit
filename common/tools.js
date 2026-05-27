@@ -39,12 +39,13 @@ export const tools = [
   {
     id: 'add-wm',
     name: '加水印',
-    desc: '文字或 Logo 平铺保护',
+    desc: '相册选图，文字平铺保护',
+    subtitle: '文字水印',
     categoryId: 'media',
     glyph: '加',
     gradient: 'grad-cyan-blue',
-    status: 'soon',
-    path: '/pages/tool-detail/tool-detail?id=add-wm'
+    status: 'ready',
+    path: '/pages/add-wm/add-wm'
   },
   {
     id: 'qr-parse',
