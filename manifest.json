@@ -27,6 +27,7 @@
   "quickapp": {},
   "mp-weixin": {
     "appid": "",
+    "cloudfunctionRoot": "cloudfunctions/",
     "setting": {
       "urlCheck": false,
       "es6": true,

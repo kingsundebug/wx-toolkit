@@ -18,7 +18,7 @@ export const tools = [
     categoryId: 'media',
     glyph: '去',
     gradient: 'grad-blue-purple',
-    status: 'soon',
+    status: 'ready',
     path: '/pages/remove-wm/remove-wm',
     tabPath: '/pages/remove-wm/remove-wm',
     featured: true
