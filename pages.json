@@ -16,7 +16,7 @@
     {
       "path": "pages/qrcode/qrcode",
       "style": {
-        "navigationBarTitleText": "二维码"
+        "navigationBarTitleText": "生成二维码"
       }
     },
     {
@@ -56,6 +56,27 @@
       "style": {
         "navigationBarTitleText": "疯狂星期四"
       }
+    },
+    {
+      "path": "pages/zuan-baodian/zuan-baodian",
+      "style": {
+        "navigationBarTitleText": "怼人宝典"
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "pkg-ac",
+      "pages": [
+        {
+          "path": "pages/ac-simulator/ac-simulator",
+          "style": {
+            "navigationBarTitleText": "便携小空调",
+            "navigationBarBackgroundColor": "#FFFFFF",
+            "navigationBarTextStyle": "black"
+          }
+        }
+      ]
     }
   ],
   "globalStyle": {
@@ -84,7 +105,7 @@
       },
       {
         "pagePath": "pages/qrcode/qrcode",
-        "text": "二维码",
+        "text": "生成二维码",
         "iconPath": "static/tab/qr.png",
         "selectedIconPath": "static/tab/qr-on.png"
       },

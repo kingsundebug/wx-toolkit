@@ -5,7 +5,7 @@
         <text class="glyph">码</text>
       </view>
       <view class="head-body">
-        <text class="head-title">二维码生成</text>
+        <text class="head-title">生成二维码</text>
         <text class="head-desc">可选风景/人物底图，生成艺术二维码，扫码内容不变</text>
       </view>
     </view>

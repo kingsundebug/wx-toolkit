@@ -1,20 +1,30 @@
 <template>
   <view class="page">
     <view class="head-card">
-      <view class="head-icon tone-kfc">
-        <text class="glyph">肯</text>
+      <view class="head-icon tone-zuan">
+        <text class="glyph">怼</text>
       </view>
       <view class="head-body">
-        <text class="head-title">疯狂星期四</text>
-        <text class="head-desc">内置疯四梗文案，随机抽取，一键复制</text>
+        <text class="head-title">怼人宝典</text>
+        <text class="head-desc">内置语录随机抽取，仅供娱乐互怼</text>
       </view>
-    </view>
-
-    <view v-if="isThursday" class="badge-row">
-      <text class="badge">今天是星期四，发梗正当时</text>
     </view>
 
     <view class="panel">
+      <text class="label">模式</text>
+      <view class="chips">
+        <view
+          v-for="item in modeOptions"
+          :key="item.id"
+          class="chip"
+          :class="{ active: mode === item.id }"
+          hover-class="chip-hover"
+          @tap="onModeChange(item.id)"
+        >
+          <text class="chip-txt">{{ item.label }}</text>
+        </view>
+      </view>
+
       <button class="btn-native btn-primary" hover-class="btn-hover" @tap="onPick">
         {{ resultCopy ? '换一条' : '随机文案' }}
       </button>
@@ -38,49 +48,77 @@
       </view>
     </view>
 
+    <text class="warn">不管怎么说骂人都是不对的，请不要主动攻击别人。</text>
   </view>
 </template>
 
 <script>
-import { isThursdayToday, pickRandomCopy } from '../../common/kfc-thursday/index.js'
+import { MODE_LABELS, pickRandomCopy } from '../../common/zuan-baodian/index.js'
+
+function emptyModeState() {
+  return {
+    resultCopy: '',
+    currentIndex: -1,
+    history: []
+  }
+}
 
 export default {
   data() {
     return {
-      isThursday: isThursdayToday(),
-      resultCopy: '',
-      currentIndex: -1,
-      copyHistory: []
+      modeOptions: [
+        { id: 'mild', label: MODE_LABELS.mild },
+        { id: 'max', label: MODE_LABELS.max }
+      ],
+      mode: 'mild',
+      modeState: {
+        mild: emptyModeState(),
+        max: emptyModeState()
+      }
     }
   },
   computed: {
+    activeState() {
+      return this.modeState[this.mode]
+    },
+    resultCopy() {
+      return this.activeState.resultCopy
+    },
     canPrev() {
-      return this.copyHistory.length > 0
+      return this.activeState.history.length > 0
     }
   },
   onLoad() {
     this.onPick()
   },
   methods: {
+    onModeChange(mode) {
+      if (this.mode === mode) {
+        return
+      }
+      this.mode = mode
+    },
     onPick() {
-      if (this.resultCopy) {
-        this.copyHistory.push({
-          text: this.resultCopy,
-          index: this.currentIndex
+      const state = this.modeState[this.mode]
+      if (state.resultCopy) {
+        state.history.push({
+          text: state.resultCopy,
+          index: state.currentIndex
         })
       }
-      const { text, index } = pickRandomCopy(this.currentIndex)
-      this.resultCopy = text
-      this.currentIndex = index
+      const { text, index } = pickRandomCopy(this.mode, state.currentIndex)
+      state.resultCopy = text
+      state.currentIndex = index
     },
     onPrev() {
-      if (!this.copyHistory.length) {
+      const state = this.modeState[this.mode]
+      if (!state.history.length) {
         uni.showToast({ title: '没有上一条了', icon: 'none' })
         return
       }
-      const prev = this.copyHistory.pop()
-      this.resultCopy = prev.text
-      this.currentIndex = prev.index
+      const prev = state.history.pop()
+      state.resultCopy = prev.text
+      state.currentIndex = prev.index
     },
     onCopy() {
       if (!this.resultCopy) {
@@ -113,7 +151,7 @@ export default {
   flex-direction: row;
   align-items: center;
   padding: 28rpx;
-  background-color: #fff7e6;
+  background-color: #fff1f0;
   border-radius: 20rpx;
 }
 
@@ -127,8 +165,8 @@ export default {
   border-radius: 24rpx;
 }
 
-.tone-kfc {
-  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+.tone-zuan {
+  background: linear-gradient(135deg, #ff4d4f 0%, #ff7875 100%);
 }
 
 .glyph {
@@ -157,24 +195,53 @@ export default {
   color: #595959;
 }
 
-.badge-row {
-  margin-top: 20rpx;
-}
-
-.badge {
-  display: inline-block;
-  padding: 10rpx 24rpx;
-  font-size: 24rpx;
-  color: #d4380d;
-  background-color: #fff2e8;
-  border-radius: 999rpx;
-}
-
 .panel {
   margin-top: 24rpx;
   padding: 28rpx;
   background-color: #ffffff;
   border-radius: 20rpx;
+}
+
+.label {
+  display: block;
+  margin-bottom: 16rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #141414;
+}
+
+.chips {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -8rpx -8rpx 20rpx;
+}
+
+.chip {
+  margin: 8rpx;
+  padding: 14rpx 28rpx;
+  background-color: #f7f8fa;
+  border-radius: 999rpx;
+  border: 2rpx solid transparent;
+}
+
+.chip.active {
+  background-color: #fff1f0;
+  border-color: #ff4d4f;
+}
+
+.chip-hover {
+  opacity: 0.85;
+}
+
+.chip-txt {
+  font-size: 26rpx;
+  color: #595959;
+}
+
+.chip.active .chip-txt {
+  color: #ff4d4f;
+  font-weight: 500;
 }
 
 .btn-native {
@@ -197,7 +264,7 @@ export default {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #fa8c16;
+  background-color: #ff4d4f;
 }
 
 .btn-secondary {
@@ -206,14 +273,14 @@ export default {
 }
 
 .btn-outline {
-  color: #fa8c16;
+  color: #ff4d4f;
   background-color: #ffffff;
-  border: 2rpx solid #fa8c16;
+  border: 2rpx solid #ff4d4f;
 }
 
 .btn-outline[disabled] {
-  color: #ffd591;
-  border-color: #ffd591;
+  color: #ffccc7;
+  border-color: #ffccc7;
 }
 
 .btn-hover {
@@ -258,4 +325,12 @@ export default {
   margin-right: 0;
 }
 
+.warn {
+  display: block;
+  margin-top: 32rpx;
+  font-size: 22rpx;
+  line-height: 34rpx;
+  color: #bfbfbf;
+  text-align: center;
+}
 </style>

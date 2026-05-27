@@ -9,3 +9,5 @@ dist/
 
 # 云函数密钥（复制 config.example.json 为 config.json 后填写）
 cloudfunctions/generateMomentsCopy/config.json
+
+scripts/zuan-data.db

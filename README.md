@@ -45,6 +45,11 @@
 - 文案数据内置在 `common/kfc-thursday/copies.json`（424 条），来源：[vikiboss/v50](https://github.com/vikiboss/v50)（MIT）。
 - 本地随机抽取，无需联网、无需配置域名；进入页面即展示一条，可「换一条」或复制。
 
+## 怼人宝典
+
+- 文案数据内置在 `common/zuan-baodian/copies.json`，从 [cndiandian/zuanbot.com](https://github.com/cndiandian/zuanbot.com) 的 `db/data.db` 导出（口吐莲花 682 条、火力全开 997 条）。
+- 重新导出可执行：`python scripts/extract_zuan_copies.py scripts/zuan-data.db common/zuan-baodian`（需先下载 `data.db` 到 `scripts/`）。
+
 ## 后续你可提供
 
 - 页面原型 / 交互稿 → 对齐 UI 与路由

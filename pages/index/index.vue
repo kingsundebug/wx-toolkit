@@ -213,4 +213,8 @@ export default {
 .grad-pink-light {
   background: linear-gradient(135deg, #ffcbd5 0%, #ffe4c9 100%);
 }
+
+.grad-ice-blue {
+  background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
+}
 </style>

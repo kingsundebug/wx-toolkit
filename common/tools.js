@@ -24,7 +24,7 @@ export const tools = [
   },
   {
     id: 'qrcode',
-    name: '二维码',
+    name: '生成二维码',
     desc: '文本、链接一键生成与保存',
     subtitle: '生成与保存',
     categoryId: 'media',
@@ -75,6 +75,26 @@ export const tools = [
     gradient: 'grad-orange-yellow',
     status: 'ready',
     path: '/pages/kfc-thursday/kfc-thursday'
+  },
+  {
+    id: 'ac-simulator',
+    name: '便携小空调',
+    desc: '便携空调界面，模式风速与音效',
+    categoryId: 'fun',
+    glyph: '冷',
+    gradient: 'grad-ice-blue',
+    status: 'ready',
+    path: '/pkg-ac/pages/ac-simulator/ac-simulator'
+  },
+  {
+    id: 'zuan-baodian',
+    name: '怼人宝典',
+    desc: '祖安语录随机抽取',
+    categoryId: 'fun',
+    glyph: '怼',
+    gradient: 'grad-pink-red',
+    status: 'ready',
+    path: '/pages/zuan-baodian/zuan-baodian'
   }
 ]
 

@@ -18,7 +18,12 @@
   "compileType": "miniprogram",
   "simulatorPluginLibVersion": {},
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      { "type": "folder", "value": "cloudfunctions" },
+      { "type": "folder", "value": "docs" },
+      { "type": "folder", "value": "scripts" },
+      { "type": "folder", "value": ".cursor" }
+    ],
     "include": []
   },
   "appid": "wx14b8a6ba6013a5e5",
