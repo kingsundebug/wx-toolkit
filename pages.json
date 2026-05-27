@@ -50,6 +50,12 @@
       "style": {
         "navigationBarTitleText": "朋友圈文案"
       }
+    },
+    {
+      "path": "pages/kfc-thursday/kfc-thursday",
+      "style": {
+        "navigationBarTitleText": "疯狂星期四"
+      }
     }
   ],
   "globalStyle": {

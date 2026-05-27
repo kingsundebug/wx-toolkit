@@ -40,6 +40,11 @@
 4. 若未使用 `config.json`，也可在云函数 **配置 → 环境变量** 中手动设置 `LLM_API_KEY`；默认使用 DeepSeek Anthropic 兼容地址 `https://api.deepseek.com/anthropic`，模型 `deepseek-v4-flash`（OpenAI 格式可用 `https://api.deepseek.com`）。
 5. 重新编译小程序后，在首页「趣味创意 → 朋友圈文案」中填写主题并生成。
 
+## 疯狂星期四文案
+
+- 文案数据内置在 `common/kfc-thursday/copies.json`（424 条），来源：[vikiboss/v50](https://github.com/vikiboss/v50)（MIT）。
+- 本地随机抽取，无需联网、无需配置域名；进入页面即展示一条，可「换一条」或复制。
+
 ## 后续你可提供
 
 - 页面原型 / 交互稿 → 对齐 UI 与路由

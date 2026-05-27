@@ -5,7 +5,6 @@
 
 export const categories = [
   { id: 'media', name: '图片媒体' },
-  { id: 'life', name: '效率备忘' },
   { id: 'fun', name: '趣味创意' }
 ]
 
@@ -48,26 +47,6 @@ export const tools = [
     path: '/pages/add-wm/add-wm'
   },
   {
-    id: 'qr-parse',
-    name: '码解析',
-    desc: '识别图中二维码内容',
-    categoryId: 'media',
-    glyph: '码',
-    gradient: 'grad-green-teal',
-    status: 'soon',
-    path: '/pages/tool-detail/tool-detail?id=qr-parse'
-  },
-  {
-    id: 'calendar',
-    name: '查日历',
-    desc: '农历、节气与节假日',
-    categoryId: 'life',
-    glyph: '查',
-    gradient: 'grad-purple-pink',
-    status: 'soon',
-    path: '/pages/tool-detail/tool-detail?id=calendar'
-  },
-  {
     id: 'danmaku',
     name: '手持弹幕',
     desc: '全屏滚动字幕展示',
@@ -86,6 +65,16 @@ export const tools = [
     gradient: 'grad-green-teal',
     status: 'ready',
     path: '/pages/moments-copy/moments-copy'
+  },
+  {
+    id: 'kfc-thursday',
+    name: '疯狂星期四',
+    desc: '肯德基疯四梗文案',
+    categoryId: 'fun',
+    glyph: '肯',
+    gradient: 'grad-orange-yellow',
+    status: 'ready',
+    path: '/pages/kfc-thursday/kfc-thursday'
   }
 ]
 
