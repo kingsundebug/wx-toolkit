@@ -2,6 +2,7 @@
   "permissions": {
     "openapi": []
   },
+  "timeout": 60,
   "envVariables": {
     "LLM_API_KEY": "你的_API_Key",
     "LLM_BASE_URL": "https://api.deepseek.com/anthropic",

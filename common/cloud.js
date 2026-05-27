@@ -12,7 +12,9 @@ const ERROR_MSG = {
   GENERATE_FAILED: '文案生成失败，请稍后重试',
   RATE_LIMIT: '请求过于频繁，请稍后再试',
   MOMENTS_CLOUD_FAIL:
-    '云函数调用失败，请确认 generateMomentsCopy 已上传部署到云端'
+    '云函数调用失败，请确认 generateMomentsCopy 已上传部署到云端',
+  FUNCTION_TIMEOUT:
+    '云函数执行超时，请在云开发控制台将 generateMomentsCopy 超时时间改为 60 秒后重试'
 }
 
 /**
@@ -25,6 +27,9 @@ export function getErrorMessage(err) {
       const msg = String(err.errMsg)
       if (/FUNCTION_NOT_FOUND|501000|could not find function/i.test(msg)) {
         return ERROR_MSG.CLOUD_CALL_FAIL
+      }
+      if (/504003|FUNCTIONS_TIME_LIMIT_EXCEEDED|timed out after 3/i.test(msg)) {
+        return ERROR_MSG.FUNCTION_TIMEOUT
       }
       if (/cloud init|Environment not found/i.test(msg)) {
         return '云环境未找到，请检查 common/config.js 中的 CLOUD_ENV_ID'
@@ -117,6 +122,9 @@ export function callGenerateMomentsCopy(payload) {
         wx.cloud.callFunction({
           name: 'generateMomentsCopy',
           data: payload,
+          config: {
+            timeout: 60000
+          },
           success(res) {
             const data = res.result
             if (data && data.ok && data.copy) {
