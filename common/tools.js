@@ -47,6 +47,17 @@ export const tools = [
     path: '/pages/add-wm/add-wm'
   },
   {
+    id: 'remove-local-wm',
+    name: '本地视频去水印',
+    desc: '选视频框选区域，模糊去除固定水印',
+    subtitle: '本地处理',
+    categoryId: 'media',
+    glyph: '视',
+    gradient: 'grad-purple-pink',
+    status: 'ready',
+    path: '/pages/remove-local-wm/remove-local-wm'
+  },
+  {
     id: 'danmaku',
     name: '手持弹幕',
     desc: '全屏滚动字幕展示',
